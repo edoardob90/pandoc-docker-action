@@ -1,6 +1,9 @@
 #!/bin/bash -l
 
-output=$(/usr/local/bin/pandoc -f html -t gfm --wrap=preserve "$1" | \
+day=$(date +%d)
+dest=${1:-prompt_${day}.md}
+
+/usr/local/bin/pandoc -f html -t gfm --wrap=preserve "https://adventofcode.com/2021/day/$day" | \
     awk '{
         if ($0 ~ /<div role="main">/) {
             getline
@@ -13,8 +16,4 @@ output=$(/usr/local/bin/pandoc -f html -t gfm --wrap=preserve "$1" | \
                 getline
             }
         }
-    }'
-)
-
-echo "::set-output name=markdown::$output"
-
+    }' > ${GITHUB_WORKFLOW}/$dest
