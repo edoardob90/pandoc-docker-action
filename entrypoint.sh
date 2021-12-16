@@ -1,7 +1,8 @@
 #!/bin/bash -l
 
 day=$(date +%d)
-dest=${1:-prompt_${day}.md}
+mkdir -p "$day"
+dest=${day}/${1:-prompt_${day}.md}
 
 /usr/local/bin/pandoc -f html -t gfm --wrap=preserve "https://adventofcode.com/2021/day/$day" | \
     awk '{
