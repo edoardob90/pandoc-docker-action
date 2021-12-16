@@ -16,4 +16,4 @@ dest=${1:-prompt_${day}.md}
                 getline
             }
         }
-    }' > ${GITHUB_WORKFLOW}/$dest
+    }' > $dest
