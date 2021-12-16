@@ -1,0 +1,16 @@
+# action.yml
+name: 'Pandoc convert'
+description: 'Convert HTML page to Markdown'
+inputs:
+  url:
+    description: 'URL of the webpage'
+    required: true
+    default: 'https://adventofcode.com/2021/day/1'
+outputs:
+  markdown:
+    description: 'Markdown text'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
