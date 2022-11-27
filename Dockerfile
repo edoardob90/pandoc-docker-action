@@ -1,4 +1,4 @@
-FROM pandoc/ubuntu:2.16.2
+FROM pandoc/minimal:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
