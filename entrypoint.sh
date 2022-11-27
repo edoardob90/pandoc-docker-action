@@ -1,10 +1,13 @@
 #!/bin/bash -l
 
+year=$(date +%Y)
 day=$(date +%d)
+
 mkdir -p "$day"
+
 dest=${day}/${1:-prompt_${day}.md}
 
-/usr/local/bin/pandoc -f html -t gfm --wrap=preserve "https://adventofcode.com/2021/day/$day" | \
+/usr/local/bin/pandoc -f html -t gfm --wrap=preserve "https://adventofcode.com/$year/day/$day" | \
     awk '{
         if ($0 ~ /<div role="main">/) {
             getline
