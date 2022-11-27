@@ -7,9 +7,18 @@ inputs:
   dest:
     description: 'Destination filename'
     required: false
+    default: 'README.md'
+  year:
+    description: 'Calendar year of the event'
+    required: false
+  day:
+    description: 'Puzzle day'
+    required: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.dest }}
+    - ${{ inputs.year }}
+    - ${{ inputs.day }}
