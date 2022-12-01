@@ -1,5 +1,7 @@
-FROM pandoc/minimal:latest
+FROM pandoc/minimal:latest-ubuntu
 
-COPY . .
+WORKDIR /data
 
-ENTRYPOINT ["entrypoint.sh"]
+COPY entrypoint.sh entrypoint.sh
+
+ENTRYPOINT ["/data/entrypoint.sh"]
