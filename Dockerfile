@@ -1,5 +1,5 @@
 FROM pandoc/minimal:latest
 
-COPY entrypoint.sh /entrypoint.sh
+COPY . .
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]

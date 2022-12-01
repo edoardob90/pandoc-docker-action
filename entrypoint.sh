@@ -2,7 +2,7 @@
 
 dest=${1}
 year=${2:-$(date +%Y)}
-day=${3:-$(date +%d)}
+day=${3:-$(date +%-d)} # '-' means "don't pad with zeroes"
 
 mkdir -p "$day"
 
